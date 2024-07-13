@@ -8,6 +8,6 @@ public class Main {
     public static void main(String[] args) {
         APIConsumer consumer = new APIConsumer();
         DataConverter converter = new DataConverter();
-        System.out.println(converter.convert(consumer.consume("friends"), SeriesData.class));
+        System.out.println(converter.getData(consumer.consume("friends"), SeriesData.class));
     }
 }
