@@ -12,7 +12,7 @@ public class Main {
     public void main() {
 
         String entry = "friends&season=2";
-        String json = consumer.consume(entry)
-        System.out.println(converter.getData(, SeasonData.class));
+        String json = consumer.consume(entry);
+        System.out.println(converter.getData(json, SeasonData.class));
     }
 }
