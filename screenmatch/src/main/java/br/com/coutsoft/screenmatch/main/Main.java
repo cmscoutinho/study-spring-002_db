@@ -15,9 +15,11 @@ public class Main {
 
     public void main() {
 
-        String entry = "friends&season=2";
-        String json = consumer.consume(entry);
-        System.out.println(converter.getData(json, SeasonData.class));
+        menu();
+
+//        String entry = "friends&season=2";
+//        String json = consumer.consume(entry);
+//        System.out.println(converter.getData(json, SeasonData.class));
     }
 
     private void menu() {
@@ -26,8 +28,8 @@ public class Main {
         while (usrChoice != 3) {
             System.out.println("""
                     Choose one type of search:
-                    1-Show title
-                    2-Show season
+                    1-Title search
+                    2-Season search
                     3-Exit
                     """);
 
@@ -36,15 +38,31 @@ public class Main {
 
             switch (usrChoice) {
                 case 1:
+                    searchByTitle();
                     break;
                 case 2:
+                    searchBySeason();
                     break;
                 case 3:
+                    System.out.println("Goodbye!");
                     break;
                 default:
                     System.out.println("Invalid option!");
             }
 
         }
+    }
+
+    private void searchByTitle() {
+        System.out.print("Type in the Show's title: ");
+        String title = scanner.nextLine();
+
+        String json = consumer.consume(title);
+        SeriesData data = converter.getData(json, SeriesData.class);
+        System.out.println("Output:");
+        System.out.println(data);
+    }
+
+    private void searchBySeason() {
     }
 }
