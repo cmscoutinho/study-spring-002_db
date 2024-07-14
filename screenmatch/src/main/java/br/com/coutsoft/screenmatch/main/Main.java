@@ -5,6 +5,7 @@ import br.com.coutsoft.screenmatch.model.SeriesData;
 import br.com.coutsoft.screenmatch.service.APIConsumer;
 import br.com.coutsoft.screenmatch.service.DataConverter;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -64,5 +65,15 @@ public class Main {
     }
 
     private void searchBySeason() {
+        System.out.print("Type in the Show's title: ");
+        String title = scanner.nextLine();
+
+        System.out.print("Which season?: ");
+        String season = scanner.nextLine();
+
+        String json = consumer.consume(title + "&season=" + season);
+        List<SeasonData> data = converter.getList(json, SeasonData.class);
+        System.out.println("Output:");
+        System.out.println(data);
     }
 }
