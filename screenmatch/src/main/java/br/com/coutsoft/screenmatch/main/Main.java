@@ -72,7 +72,8 @@ public class Main {
         String season = scanner.nextLine();
 
         String json = consumer.consume(title + "&season=" + season);
-        List<SeasonData> data = converter.getList(json, SeasonData.class);
+//        List<SeasonData> data = converter.getList(json, SeasonData.class);
+
         System.out.println("Output:");
         System.out.println(data);
     }

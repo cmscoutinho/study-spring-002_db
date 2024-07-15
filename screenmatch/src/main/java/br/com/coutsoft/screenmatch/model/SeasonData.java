@@ -1,10 +1,12 @@
 package br.com.coutsoft.screenmatch.model;
 
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import java.util.List;
 
-public record SeasonData(String title,
-                         String seasonIdx,
-                         String totalSeasons,
-                         List<Episode> episodes) {
+public record SeasonData(@JsonAlias("Title") String title,
+                         @JsonAlias("Season") String seasonIdx,
+                         @JsonAlias("totalSeasons") String totalSeasons,
+                         @JsonAlias("Episodes") List<Episode> episodes) {
 }
