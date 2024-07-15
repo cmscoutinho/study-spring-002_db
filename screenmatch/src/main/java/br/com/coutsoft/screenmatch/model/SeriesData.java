@@ -9,11 +9,11 @@ public record SeriesData(@JsonAlias("Title") String title,
                          @JsonAlias("totalSeasons") String seasons,
                          @JsonAlias("Released") String releaseDate){
 
-    @Override
-    public String toString() {
-        return "Title: "    + title         + "\n" +
-               "Seasons: "  + seasons       + "\n" +
-               "Released: " + releaseDate   + "\n" +
-               "Rating: "   + rating;
-    }
+//    @Override
+//    public String toString() {
+//        return "Title: "    + title         + "\n" +
+//               "Seasons: "  + seasons       + "\n" +
+//               "Released: " + releaseDate   + "\n" +
+//               "Rating: "   + rating;
+//    }
 }

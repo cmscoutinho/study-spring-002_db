@@ -71,6 +71,14 @@ public class Main {
 //        System.out.print("Which season?: ");
 //        String season = scanner.nextLine();
 
-        String json = consumer.consume()
+        String json = consumer.consume(title + "&season=1");
+        SeasonData seasonData = converter.getData(json, SeasonData.class);
+        int seasons = Integer.parseInt(seasonData.totalSeasons());
+
+        for (int i = 1; i <= seasons; i++) {
+            json = consumer.consume(title + "&season=" + i);
+            seasonData = converter.getData(json, SeasonData.class);
+            System.out.println(seasonData);
+        }
     }
 }
