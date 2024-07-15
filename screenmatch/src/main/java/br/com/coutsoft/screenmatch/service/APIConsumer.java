@@ -14,7 +14,7 @@ public class APIConsumer {
     public String consume(String entry) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest
-                .newBuilder(URI.create(BASE_URL + entry.replace(" ", "+") + API_KEY)).
+                .newBuilder(URI.create(BASE_URL + entry.toLowerCase().replace(" ", "+") + API_KEY)).
                 build();
 
         String json = "";

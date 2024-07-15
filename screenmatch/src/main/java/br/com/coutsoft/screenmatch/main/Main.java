@@ -68,13 +68,9 @@ public class Main {
         System.out.print("Type in the Show's title: ");
         String title = scanner.nextLine();
 
-        System.out.print("Which season?: ");
-        String season = scanner.nextLine();
+//        System.out.print("Which season?: ");
+//        String season = scanner.nextLine();
 
-        String json = consumer.consume(title + "&season=" + season);
-//        List<SeasonData> data = converter.getList(json, SeasonData.class);
-
-        System.out.println("Output:");
-        System.out.println(data);
+        String json = consumer.consume()
     }
 }
