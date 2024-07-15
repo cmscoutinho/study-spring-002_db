@@ -15,12 +15,7 @@ public class Main {
     private Scanner scanner = new Scanner(System.in);
 
     public void main() {
-
         menu();
-
-//        String entry = "friends&season=2";
-//        String json = consumer.consume(entry);
-//        System.out.println(converter.getData(json, SeasonData.class));
     }
 
     private void menu() {
@@ -67,9 +62,6 @@ public class Main {
     private void searchBySeason() {
         System.out.print("Type in the Show's title: ");
         String title = scanner.nextLine();
-
-//        System.out.print("Which season?: ");
-//        String season = scanner.nextLine();
 
         String json = consumer.consume(title + "&season=1");
         SeasonData seasonData = converter.getData(json, SeasonData.class);
