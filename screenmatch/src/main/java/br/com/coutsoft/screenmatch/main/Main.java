@@ -73,9 +73,10 @@ public class Main {
 
         String json = consumer.consume(title + "&season=1");
         SeasonData seasonData = converter.getData(json, SeasonData.class);
+        System.out.println(seasonData);
         int seasons = Integer.parseInt(seasonData.totalSeasons());
 
-        for (int i = 1; i <= seasons; i++) {
+        for (int i = 2; i <= seasons; i++) {
             json = consumer.consume(title + "&season=" + i);
             seasonData = converter.getData(json, SeasonData.class);
             System.out.println(seasonData);
