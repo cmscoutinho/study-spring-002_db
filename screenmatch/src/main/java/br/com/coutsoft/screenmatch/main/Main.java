@@ -50,8 +50,7 @@ public class Main {
     }
 
     private void searchByTitle() {
-        System.out.print("Type in the Show's title: ");
-        String title = scanner.nextLine();
+        String title = readTitle();
 
         String json = consumer.consume(title);
         SeriesData data = converter.getData(json, SeriesData.class);
@@ -60,8 +59,7 @@ public class Main {
     }
 
     private void searchBySeason() {
-        System.out.print("Type in the Show's title: ");
-        String title = scanner.nextLine();
+        String title = readTitle();
 
         String json = consumer.consume(title + "&season=1");
         SeasonData seasonData = converter.getData(json, SeasonData.class);
@@ -74,4 +72,12 @@ public class Main {
             System.out.println(seasonData);
         }
     }
+
+    private String readTitle() {
+        System.out.print("Type in the Show's title: ");
+        String title = scanner.nextLine();
+        return title;
+    }
+
+
 }
