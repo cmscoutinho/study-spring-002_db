@@ -43,7 +43,7 @@ public class Main {
                     searchBySeason();
                     break;
                 case 3:
-                    listSearchTitles();
+                    listSearchedTitles();
                     break;
                 case 4:
                     System.out.println("Goodbye!");
@@ -55,7 +55,7 @@ public class Main {
         }
     }
 
-    private void listSearchTitles() {
+    private void listSearchedTitles() {
         System.out.println("These are the titles you searched so far:");
         searchedSeries.forEach(System.out::println);
     }
