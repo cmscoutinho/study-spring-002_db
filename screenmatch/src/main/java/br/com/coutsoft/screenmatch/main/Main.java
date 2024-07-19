@@ -5,6 +5,7 @@ import br.com.coutsoft.screenmatch.model.SeriesData;
 import br.com.coutsoft.screenmatch.service.APIConsumer;
 import br.com.coutsoft.screenmatch.service.DataConverter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -49,34 +50,34 @@ public class Main {
         }
     }
 
-    private void searchByTitle() {
-        String title = readTitle();
-
-        String json = consumer.consume(title);
-        SeriesData data = converter.getData(json, SeriesData.class);
-        System.out.println("Output:");
-        System.out.println(data);
-    }
-
-    private void searchBySeason() {
-        String title = readTitle();
-
-        String json = consumer.consume(title + "&season=1");
-        SeasonData seasonData = converter.getData(json, SeasonData.class);
-        System.out.println(seasonData);
-        int seasons = Integer.parseInt(seasonData.totalSeasons());
-
-        for (int i = 2; i <= seasons; i++) {
-            json = consumer.consume(title + "&season=" + i);
-            seasonData = converter.getData(json, SeasonData.class);
-            System.out.println(seasonData);
-        }
-    }
-
     private String readTitle() {
         System.out.print("Type in the Show's title: ");
         String title = scanner.nextLine();
         return title;
+    }
+
+    private SeriesData getSeasonData() {
+        String title = readTitle();
+        String json = consumer.consume(title);
+        SeriesData data = converter.getData(json, SeriesData.class);
+        return data;
+    }
+
+    private void searchByTitle() {
+        SeriesData seriesData = getSeasonData();
+        System.out.println("Output:");
+        System.out.println(seriesData);
+    }
+
+    private void searchBySeason() {
+        SeriesData seriesData = getSeasonData();
+        List<SeasonData> seasons = new ArrayList<>();
+
+        for (int i = 1; i <= seriesData.seasons(); i++) {
+            String json = consumer.consume(seriesData.title() + "&season=" + i);
+            SeasonData seasonData = converter.getData(json, SeasonData.class);
+            System.out.println(seasonData);
+        }
     }
 
 
