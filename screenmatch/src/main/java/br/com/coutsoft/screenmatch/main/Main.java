@@ -14,6 +14,7 @@ public class Main {
     private APIConsumer consumer = new APIConsumer();
     private DataConverter converter = new DataConverter();
     private Scanner scanner = new Scanner(System.in);
+    private List<SeriesData> searchedSeries = new ArrayList<>();
 
     public void main() {
         menu();
@@ -65,6 +66,7 @@ public class Main {
 
     private void searchByTitle() {
         SeriesData seriesData = getSeasonData();
+        searchedSeries.add(seriesData);
         System.out.println("Output:");
         System.out.println(seriesData);
     }
