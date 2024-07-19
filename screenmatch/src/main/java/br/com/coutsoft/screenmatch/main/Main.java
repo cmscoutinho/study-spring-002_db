@@ -76,8 +76,10 @@ public class Main {
         for (int i = 1; i <= seriesData.seasons(); i++) {
             String json = consumer.consume(seriesData.title() + "&season=" + i);
             SeasonData seasonData = converter.getData(json, SeasonData.class);
-            System.out.println(seasonData);
+            seasons.add(seasonData);
         }
+
+        seasons.forEach(System.out::println);
     }
 
 
