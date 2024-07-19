@@ -3,11 +3,16 @@ package br.com.coutsoft.screenmatch.model;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record SeriesData(@JsonAlias("Title") String title,
-                         @JsonAlias("imdbRating") String rating,
+                         @JsonAlias("Genre") String genre,
                          @JsonAlias("totalSeasons") Integer seasons,
-                         @JsonAlias("Released") String releaseDate){
+                         @JsonAlias("Actors") String actors,
+                         @JsonAlias("Released") String releaseDate,
+                         @JsonAlias("imdbRating") String rating,
+                         @JsonAlias("Plot") String plot){
 
 //    @Override
 //    public String toString() {
