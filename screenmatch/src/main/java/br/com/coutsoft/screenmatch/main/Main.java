@@ -23,12 +23,13 @@ public class Main {
     private void menu() {
         int usrChoice = -1;
 
-        while (usrChoice != 3) {
+        while (usrChoice != 4) {
             System.out.println("""
                     Choose one type of search:
                     1-Title search
                     2-Season search
-                    3-Exit
+                    3-List searched titles
+                    4-Exit
                     """);
 
             usrChoice = scanner.nextInt();
@@ -42,6 +43,9 @@ public class Main {
                     searchBySeason();
                     break;
                 case 3:
+                    listSearchTitles();
+                    break;
+                case 4:
                     System.out.println("Goodbye!");
                     break;
                 default:
@@ -49,6 +53,11 @@ public class Main {
             }
 
         }
+    }
+
+    private void listSearchTitles() {
+        System.out.println("These are the titles you searched so far:");
+        searchedSeries.forEach(System.out::println);
     }
 
     private String readTitle() {
