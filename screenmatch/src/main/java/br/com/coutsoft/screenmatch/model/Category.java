@@ -12,4 +12,13 @@ public enum Category {
     Category(String omdbCategory) {
         this.omdbCategory = omdbCategory;
     }
+
+    public static Category fromString(String text) {
+        for (Category category: Category.values()) {
+            if(category.omdbCategory.equalsIgnoreCase(text)) {
+                return category;
+            }
+        }
+        throw new IllegalArgumentException("No category was found for the given string!");
+    }
 }
