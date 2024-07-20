@@ -12,6 +12,7 @@ public record SeriesData(@JsonAlias("Title") String title,
                          @JsonAlias("Actors") String actors,
                          @JsonAlias("Released") String releaseDate,
                          @JsonAlias("imdbRating") String rating,
+                         @JsonAlias("Poster") String poster,
                          @JsonAlias("Plot") String plot){
 
 //    @Override
