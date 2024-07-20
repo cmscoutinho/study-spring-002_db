@@ -19,7 +19,10 @@ public class Series {
         this.title = seriesData.title();
         this.seasons = seriesData.seasons();
         this.rating = OptionalDouble.of(Double.valueOf(seriesData.rating())).orElse(0);
-
+        this.genre = Category.fromString(seriesData.genre().split(",")[0].trim());
+        this.actors = seriesData.actors();
+        this.poster = seriesData.poster();
+        this.plot = seriesData.plot();
     }
 
 }
