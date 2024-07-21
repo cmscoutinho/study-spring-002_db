@@ -25,4 +25,79 @@ public class Series {
         this.plot = seriesData.plot();
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Category getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Category genre) {
+        this.genre = genre;
+    }
+
+    public Integer getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(Integer seasons) {
+        this.seasons = seasons;
+    }
+
+    public String getActors() {
+        return actors;
+    }
+
+    public void setActors(String actors) {
+        this.actors = actors;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    public String getPlot() {
+        return plot;
+    }
+
+    public void setPlot(String plot) {
+        this.plot = plot;
+    }
+
+    @Override
+    public String toString() {
+        return ", genre=" + genre +
+                ", title='" + title + '\'' +
+                ", seasons=" + seasons +
+                ", actors='" + actors + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", rating=" + rating +
+                ", poster='" + poster + '\'' +
+                ", plot='" + plot + '\'';
+    }
 }
