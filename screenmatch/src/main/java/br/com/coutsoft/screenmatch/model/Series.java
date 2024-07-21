@@ -17,10 +17,11 @@ public class Series {
 
     public Series(SeriesData seriesData) {
         this.title = seriesData.title();
-        this.seasons = seriesData.seasons();
-        this.rating = OptionalDouble.of(Double.valueOf(seriesData.rating())).orElse(0);
         this.genre = Category.fromString(seriesData.genre().split(",")[0].trim());
+        this.seasons = seriesData.seasons();
         this.actors = seriesData.actors();
+        this.releaseDate = seriesData.releaseDate();
+        this.rating = OptionalDouble.of(Double.valueOf(seriesData.rating())).orElse(0);
         this.poster = seriesData.poster();
         this.plot = seriesData.plot();
     }
@@ -91,7 +92,7 @@ public class Series {
 
     @Override
     public String toString() {
-        return ", genre=" + genre +
+        return "genre=" + genre +
                 ", title='" + title + '\'' +
                 ", seasons=" + seasons +
                 ", actors='" + actors + '\'' +
