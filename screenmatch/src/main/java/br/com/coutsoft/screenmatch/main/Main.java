@@ -1,13 +1,16 @@
 package br.com.coutsoft.screenmatch.main;
 
 import br.com.coutsoft.screenmatch.model.SeasonData;
+import br.com.coutsoft.screenmatch.model.Series;
 import br.com.coutsoft.screenmatch.model.SeriesData;
 import br.com.coutsoft.screenmatch.service.APIConsumer;
 import br.com.coutsoft.screenmatch.service.DataConverter;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -56,8 +59,14 @@ public class Main {
     }
 
     private void listSearchedTitles() {
+        List<Series> series = new ArrayList<>();
+        series = searchedSeries.stream()
+                .map(d -> new Series(d))
+                .collect(Collectors.toList());
         System.out.println("These are the titles you searched so far:");
-        searchedSeries.forEach(System.out::println);
+        series.stream()
+                .sorted(Comparator.comparing(Series::getGenre))
+                .forEach(System.out::println);
     }
 
     private String readTitle() {
