@@ -15,7 +15,7 @@ public class ChatGPTQuery {
         try {
             properties.load(new FileInputStream(".env"));
             apiKey = properties.getProperty("GPT3_KEY");
-//            System.out.println("API Key: " + apiKey);
+            System.out.println("API Key: " + apiKey);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -28,7 +28,8 @@ public class ChatGPTQuery {
         OpenAiService service = new OpenAiService(getEnvKey());
 
         CompletionRequest request = CompletionRequest.builder()
-                .model("gpt-4o-mini-2024-07-18")
+//                .model("gpt-4o-mini-2024-07-18")
+                .model("gpt-3.5-turbo")
                 .prompt("please translate the following text to " + lang + ": " + text)
                 .maxTokens(1000)
                 .temperature(0.7)

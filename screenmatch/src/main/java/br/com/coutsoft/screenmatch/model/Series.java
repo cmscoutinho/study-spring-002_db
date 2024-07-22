@@ -1,5 +1,7 @@
 package br.com.coutsoft.screenmatch.model;
 
+import br.com.coutsoft.screenmatch.service.ChatGPTQuery;
+import br.com.coutsoft.screenmatch.service.translation.MyMemoryAPIQuery;
 import com.fasterxml.jackson.annotation.JsonAlias;
 
 import java.util.OptionalDouble;
@@ -23,7 +25,8 @@ public class Series {
         this.releaseDate = seriesData.releaseDate();
         this.rating = OptionalDouble.of(Double.valueOf(seriesData.rating())).orElse(0);
         this.poster = seriesData.poster();
-        this.plot = seriesData.plot();
+//        this.plot = ChatGPTQuery.getTranslation("portuguese", seriesData.plot().trim());
+        this.plot = MyMemoryAPIQuery.getTranslation(seriesData.plot()).trim();
     }
 
     public String getTitle() {
