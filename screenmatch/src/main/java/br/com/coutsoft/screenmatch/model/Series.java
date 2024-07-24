@@ -3,12 +3,20 @@ package br.com.coutsoft.screenmatch.model;
 import br.com.coutsoft.screenmatch.service.ChatGPTQuery;
 import br.com.coutsoft.screenmatch.service.translation.MyMemoryAPIQuery;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import jakarta.persistence.*;
 
 import java.util.OptionalDouble;
 
+@Entity
+@Table(name = "series")
 public class Series {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(unique = true)
     private String title;
+    @Enumerated(EnumType.STRING)
     private Category genre;
     private Integer seasons;
     private String actors;
@@ -27,6 +35,14 @@ public class Series {
         this.poster = seriesData.poster();
 //        this.plot = ChatGPTQuery.getTranslation("portuguese", seriesData.plot().trim());
         this.plot = MyMemoryAPIQuery.getTranslation(seriesData.plot()).trim();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
