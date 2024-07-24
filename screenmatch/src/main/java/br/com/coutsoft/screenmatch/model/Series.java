@@ -26,6 +26,8 @@ public class Series {
     private Double rating;
     private String poster;
     private String plot;
+
+    @Transient
     private List<Episode> episodes = new ArrayList<>();
 
     public Series(SeriesData seriesData) {
