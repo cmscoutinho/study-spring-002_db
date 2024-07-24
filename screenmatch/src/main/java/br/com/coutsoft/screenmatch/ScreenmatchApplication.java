@@ -17,6 +17,7 @@ public class ScreenmatchApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		new Main().main();
+		Main main = new Main(repository);
+		main.main();
 	}
 }

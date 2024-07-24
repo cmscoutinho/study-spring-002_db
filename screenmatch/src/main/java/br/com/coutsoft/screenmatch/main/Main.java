@@ -21,6 +21,11 @@ public class Main {
     private List<SeriesData> searchedSeries = new ArrayList<>();
 
     private SeriesRepository repository;
+
+    public Main(SeriesRepository repository) {
+        this.repository = repository;
+    }
+
     public void main() {
         menu();
     }
