@@ -91,7 +91,9 @@ public class Main {
 
     private void searchByTitle() {
         SeriesData seriesData = getSeasonData();
+        Series series = new Series(seriesData);
 //        searchedSeries.add(seriesData);
+        repository.save(series);
         System.out.println("Output:");
         System.out.println(seriesData);
     }
