@@ -5,6 +5,8 @@ import br.com.coutsoft.screenmatch.service.translation.MyMemoryAPIQuery;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.OptionalDouble;
 
 @Entity
@@ -24,6 +26,7 @@ public class Series {
     private Double rating;
     private String poster;
     private String plot;
+    private List<Episode> episodes = new ArrayList<>();
 
     public Series(SeriesData seriesData) {
         this.title = seriesData.title();
@@ -107,6 +110,14 @@ public class Series {
 
     public void setPlot(String plot) {
         this.plot = plot;
+    }
+
+    public List<Episode> getEpisodes() {
+        return episodes;
+    }
+
+    public void setEpisodes(List<Episode> episodes) {
+        this.episodes = episodes;
     }
 
     @Override
