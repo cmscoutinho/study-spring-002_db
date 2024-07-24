@@ -3,6 +3,7 @@ package br.com.coutsoft.screenmatch.main;
 import br.com.coutsoft.screenmatch.model.SeasonData;
 import br.com.coutsoft.screenmatch.model.Series;
 import br.com.coutsoft.screenmatch.model.SeriesData;
+import br.com.coutsoft.screenmatch.repository.SeriesRepository;
 import br.com.coutsoft.screenmatch.service.APIConsumer;
 import br.com.coutsoft.screenmatch.service.DataConverter;
 
@@ -19,6 +20,7 @@ public class Main {
     private Scanner scanner = new Scanner(System.in);
     private List<SeriesData> searchedSeries = new ArrayList<>();
 
+    private SeriesRepository repository;
     public void main() {
         menu();
     }
@@ -84,7 +86,7 @@ public class Main {
 
     private void searchByTitle() {
         SeriesData seriesData = getSeasonData();
-        searchedSeries.add(seriesData);
+//        searchedSeries.add(seriesData);
         System.out.println("Output:");
         System.out.println(seriesData);
     }
