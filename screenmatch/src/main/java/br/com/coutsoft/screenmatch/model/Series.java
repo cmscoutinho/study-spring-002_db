@@ -30,6 +30,10 @@ public class Series {
     @Transient
     private List<Episode> episodes = new ArrayList<>();
 
+    public Series() {
+
+    }
+
     public Series(SeriesData seriesData) {
         this.title = seriesData.title();
         this.genre = Category.fromString(seriesData.genre().split(",")[0].trim());
