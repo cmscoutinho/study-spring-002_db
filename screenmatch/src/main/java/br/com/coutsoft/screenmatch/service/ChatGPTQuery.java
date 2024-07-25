@@ -9,23 +9,8 @@ import java.util.Properties;
 
 public class ChatGPTQuery {
 
-    private static String getEnvKey() {
-        Properties properties = new Properties();
-        String apiKey = "";
-        try {
-            properties.load(new FileInputStream(".env"));
-            apiKey = properties.getProperty("GPT3_KEY");
-            System.out.println("API Key: " + apiKey);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return apiKey;
-    }
-
     public static String getTranslation(String lang, String text) {
-        OpenAiService service = new OpenAiService(getEnvKey());
+        OpenAiService service = new OpenAiService(System.getenv("GPT3_KEY"));
 
         CompletionRequest request = CompletionRequest.builder()
 //                .model("gpt-4o-mini-2024-07-18")
