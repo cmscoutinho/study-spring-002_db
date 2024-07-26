@@ -1,5 +1,7 @@
 package br.com.coutsoft.screenmatch.model;
 
+import jakarta.persistence.ManyToOne;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
@@ -9,6 +11,8 @@ public class Episode {
     private Integer episodeIdx;
     private Double rating;
     private LocalDate releaseDate;
+    @ManyToOne
+    private Series series;
 
     public Episode(Integer season, EpisodeData episodeData) {
         this.season = season;

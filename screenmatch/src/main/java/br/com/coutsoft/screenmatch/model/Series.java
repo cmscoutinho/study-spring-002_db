@@ -1,8 +1,6 @@
 package br.com.coutsoft.screenmatch.model;
 
-import br.com.coutsoft.screenmatch.service.ChatGPTQuery;
 import br.com.coutsoft.screenmatch.service.translation.MyMemoryAPIQuery;
-import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -27,7 +25,7 @@ public class Series {
     private String poster;
     private String plot;
 
-    @Transient
+    @OneToMany(mappedBy = "series")
     private List<Episode> episodes = new ArrayList<>();
 
     public Series() {
