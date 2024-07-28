@@ -7,10 +7,7 @@ import br.com.coutsoft.screenmatch.repository.SeriesRepository;
 import br.com.coutsoft.screenmatch.service.APIConsumer;
 import br.com.coutsoft.screenmatch.service.DataConverter;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -100,18 +97,28 @@ public class Main {
     }
 
     private void searchBySeason() {
+        listSearchedTitles();
         var seriesName = readTitle();
 
-        SeriesData seriesData = getSeasonData();
-        List<SeasonData> seasons = new ArrayList<>();
+        Optional<Series> selectedSeries = series.stream()
+                .filter(s -> s.getTitle().toLowerCase().contains(seriesName.toLowerCase()))
+                .findFirst();
 
-        for (int i = 1; i <= seriesData.seasons(); i++) {
-            String json = consumer.consume(seriesData.title() + "&season=" + i);
-            SeasonData seasonData = converter.getData(json, SeasonData.class);
-            seasons.add(seasonData);
+        if(selectedSeries.isPresent()) {
+            //SeriesData seriesData = getSeasonData();
+            Series foundSeries = selectedSeries.get();
+            List<SeasonData> seasons = new ArrayList<>();
+
+            for (int i = 1; i <= foundSeries.getSeasons(); i++) {
+                String json = consumer.consume(foundSeries.getTitle() + "&season=" + i);
+                SeasonData seasonData = converter.getData(json, SeasonData.class);
+                seasons.add(seasonData);
+            }
+
+            seasons.forEach(System.out::println);
+        } else {
+            System.out.println("Series not found!");
         }
-
-        seasons.forEach(System.out::println);
     }
 
 
