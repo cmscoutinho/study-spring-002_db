@@ -1,5 +1,6 @@
 package br.com.coutsoft.screenmatch.main;
 
+import br.com.coutsoft.screenmatch.model.Episode;
 import br.com.coutsoft.screenmatch.model.SeasonData;
 import br.com.coutsoft.screenmatch.model.Series;
 import br.com.coutsoft.screenmatch.model.SeriesData;
@@ -116,6 +117,11 @@ public class Main {
             }
 
             seasons.forEach(System.out::println);
+
+            seasons.stream()
+                    .flatMap(d -> d.episodeData().stream()
+                            .map(e -> new Episode(d.seasonIdx(), e)))
+                    .collect(Collectors.toList());
         } else {
             System.out.println("Series not found!");
         }
