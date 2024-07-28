@@ -22,7 +22,7 @@ public class Main {
 
     private SeriesRepository repository;
 
-    private List<Series> series;
+    private List<Series> series = new ArrayList<>();
     public Main(SeriesRepository repository) {
         this.repository = repository;
     }
