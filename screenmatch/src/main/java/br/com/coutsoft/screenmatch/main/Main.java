@@ -22,6 +22,7 @@ public class Main {
 
     private SeriesRepository repository;
 
+    private List<Series> series;
     public Main(SeriesRepository repository) {
         this.repository = repository;
     }
@@ -66,7 +67,7 @@ public class Main {
     }
 
     private void listSearchedTitles() {
-        List<Series> series = repository.findAll();
+        series = repository.findAll();
         //        series = searchedSeries.stream()
 //                .map(d -> new Series(d))
 //                .collect(Collectors.toList());
@@ -99,6 +100,8 @@ public class Main {
     }
 
     private void searchBySeason() {
+        var seriesName = readTitle();
+
         SeriesData seriesData = getSeasonData();
         List<SeasonData> seasons = new ArrayList<>();
 
