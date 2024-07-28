@@ -118,10 +118,13 @@ public class Main {
 
             seasons.forEach(System.out::println);
 
-            seasons.stream()
+            List<Episode> episodes = seasons.stream()
                     .flatMap(d -> d.episodeData().stream()
                             .map(e -> new Episode(d.seasonIdx(), e)))
                     .collect(Collectors.toList());
+
+            foundSeries.setEpisodes(episodes);
+            repository.save(foundSeries);
         } else {
             System.out.println("Series not found!");
         }
