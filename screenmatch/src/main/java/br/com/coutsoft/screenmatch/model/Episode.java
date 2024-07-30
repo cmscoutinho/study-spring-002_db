@@ -19,6 +19,7 @@ public class Episode {
     @ManyToOne
     private Series series;
 
+    public Episode(){}
     public Episode(Integer season, EpisodeData episodeData) {
         this.season = season;
         this.title = episodeData.title();
