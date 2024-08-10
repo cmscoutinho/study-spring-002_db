@@ -38,7 +38,8 @@ public class Main {
                     1-Title search
                     2-Season search
                     3-List searched titles
-                    4-Exit
+                    4-Find series by title
+                    5-Exit
                     """);
 
             usrChoice = scanner.nextInt();
@@ -55,6 +56,9 @@ public class Main {
                     listSearchedTitles();
                     break;
                 case 4:
+                    findSeriesByTitle();
+                    break;
+                case 5:
                     System.out.println("Goodbye!");
                     break;
                 default:
@@ -130,5 +134,7 @@ public class Main {
         }
     }
 
+    private void findSeriesByTitle() {
+    }
 
 }
