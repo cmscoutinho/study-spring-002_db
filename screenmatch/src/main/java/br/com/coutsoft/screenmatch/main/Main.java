@@ -105,9 +105,13 @@ public class Main {
         listSearchedTitles();
         var seriesName = readTitle();
 
-        Optional<Series> selectedSeries = series.stream()
-                .filter(s -> s.getTitle().toLowerCase().contains(seriesName.toLowerCase()))
-                .findFirst();
+//        Old method using streams
+//        Optional<Series> selectedSeries = series.stream()
+//                .filter(s -> s.getTitle().toLowerCase().contains(seriesName.toLowerCase()))
+//                .findFirst();
+
+//        New method using the JPA repository
+        Optional<Series> selectedSeries = repository.findByTitleContainsIgnoreCase(seriesName);
 
         if(selectedSeries.isPresent()) {
             //SeriesData seriesData = getSeasonData();
