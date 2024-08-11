@@ -32,7 +32,7 @@ public class Main {
     private void menu() {
         int usrChoice = -1;
 
-        while (usrChoice != 4) {
+        while (usrChoice != 5) {
             System.out.println("""
                     Choose one type of search:
                     1-Title search
@@ -135,6 +135,16 @@ public class Main {
     }
 
     private void findSeriesByTitle() {
+        System.out.print("Type in the Show's title: ");
+        String title = scanner.nextLine();
+
+        Optional<Series> searchedSeries = repository.findByTitleContainsIgnoreCase(title);
+
+        if(searchedSeries.isPresent()) {
+            System.out.println("Series data: " + searchedSeries.get());
+        } else {
+            System.out.println("Series not found!");
+        }
     }
 
 }
