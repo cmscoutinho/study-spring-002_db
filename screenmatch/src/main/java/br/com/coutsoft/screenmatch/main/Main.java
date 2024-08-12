@@ -32,14 +32,15 @@ public class Main {
     private void menu() {
         int usrChoice = -1;
 
-        while (usrChoice != 5) {
+        while (usrChoice != 0) {
             System.out.println("""
                     Choose one type of search:
                     1-Title search
                     2-Season search
                     3-List searched titles
                     4-Find series by title
-                    5-Exit
+                    5-Find series by actor
+                    0-Exit
                     """);
 
             usrChoice = scanner.nextInt();
@@ -59,6 +60,9 @@ public class Main {
                     findSeriesByTitle();
                     break;
                 case 5:
+                    findSeriesByActor();
+                    break;
+                case 0:
                     System.out.println("Goodbye!");
                     break;
                 default:
