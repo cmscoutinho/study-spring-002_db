@@ -155,4 +155,11 @@ public class Main {
         }
     }
 
+
+    private void findSeriesByActor() {
+        System.out.print("Type in the actor's name: ");
+        var actorName = scanner.nextLine();
+        List<Series> seriesFound = repository.findByActorsContainingIgnoreCase(actorName);
+        System.out.println(seriesFound);
+    }
 }
