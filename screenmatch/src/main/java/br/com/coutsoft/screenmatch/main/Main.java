@@ -160,6 +160,8 @@ public class Main {
         System.out.print("Type in the actor's name: ");
         var actorName = scanner.nextLine();
         List<Series> seriesFound = repository.findByActorsContainingIgnoreCase(actorName);
-        System.out.println(seriesFound);
+        System.out.println("Shows where " + actorName + " made part:");
+        seriesFound.forEach(s ->
+                System.out.println(s.getTitle() + " | Rating: " + s.getRating()));
     }
 }
