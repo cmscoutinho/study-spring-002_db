@@ -181,7 +181,8 @@ public class Main {
     private void findByCategory() {
         System.out.println("Which cateogry/genre?");
         var category = scanner.nextLine();
-x
-        List<Series> seriesByCategory = repository.findByCategory(category);
+        List<Series> seriesByCategory = repository.findByGenre(Category.fromString(category));
+        System.out.println("Series in category " + category);
+        seriesByCategory.forEach(System.out::println);
     }
 }

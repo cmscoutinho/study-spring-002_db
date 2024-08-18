@@ -14,5 +14,5 @@ public interface SeriesRepository extends JpaRepository<Series, Long> {
 
     List<Series> findTop5ByOrderByRatingDesc();
 
-    List<Series> findByCategory(Category category);
+    List<Series> findByGenre(Category category);
 }
