@@ -1,6 +1,6 @@
 package br.com.coutsoft.screenmatch.view;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class MainWindow extends JFrame {
 

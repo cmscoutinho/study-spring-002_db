@@ -40,6 +40,7 @@ public class Main {
                     3-List searched titles
                     4-Find series by title
                     5-Find series by actor
+                    6-Find top 5 shows
                     0-Exit
                     """);
 
@@ -61,6 +62,9 @@ public class Main {
                     break;
                 case 5:
                     findSeriesByActor();
+                    break;
+                case 6:
+                    findTop5Series();
                     break;
                 case 0:
                     System.out.println("Goodbye!");
@@ -164,6 +168,12 @@ public class Main {
         List<Series> seriesFound = repository.findByActorsContainingIgnoreCaseAndRatingGreaterThanEqual(actorName, rating);
         System.out.println("Shows where " + actorName + " made part:");
         seriesFound.forEach(s ->
+                System.out.println(s.getTitle() + " | Rating: " + s.getRating()));
+    }
+
+    private void findTop5Series() {
+        List<Series> topSeries = repository.findTop5ByOrderByRatingDesc();
+        topSeries.forEach(s ->
                 System.out.println(s.getTitle() + " | Rating: " + s.getRating()));
     }
 }
