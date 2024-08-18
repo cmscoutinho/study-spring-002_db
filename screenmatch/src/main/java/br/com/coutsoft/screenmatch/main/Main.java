@@ -1,9 +1,6 @@
 package br.com.coutsoft.screenmatch.main;
 
-import br.com.coutsoft.screenmatch.model.Episode;
-import br.com.coutsoft.screenmatch.model.SeasonData;
-import br.com.coutsoft.screenmatch.model.Series;
-import br.com.coutsoft.screenmatch.model.SeriesData;
+import br.com.coutsoft.screenmatch.model.*;
 import br.com.coutsoft.screenmatch.repository.SeriesRepository;
 import br.com.coutsoft.screenmatch.service.APIConsumer;
 import br.com.coutsoft.screenmatch.service.DataConverter;
@@ -182,6 +179,9 @@ public class Main {
     }
 
     private void findByCategory() {
-
+        System.out.println("Which cateogry/genre?");
+        var category = scanner.nextLine();
+x
+        List<Series> seriesByCategory = repository.findByCategory(category);
     }
 }
