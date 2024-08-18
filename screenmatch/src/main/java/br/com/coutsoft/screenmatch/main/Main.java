@@ -41,6 +41,7 @@ public class Main {
                     4-Find series by title
                     5-Find series by actor
                     6-Find top 5 shows
+                    7-Find by category
                     0-Exit
                     """);
 
@@ -65,6 +66,9 @@ public class Main {
                     break;
                 case 6:
                     findTop5Series();
+                    break;
+                case 7:
+                    findByCategory();
                     break;
                 case 0:
                     System.out.println("Goodbye!");
@@ -175,5 +179,9 @@ public class Main {
         List<Series> topSeries = repository.findTop5ByOrderByRatingDesc();
         topSeries.forEach(s ->
                 System.out.println(s.getTitle() + " | Rating: " + s.getRating()));
+    }
+
+    private void findByCategory() {
+
     }
 }
