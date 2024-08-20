@@ -39,6 +39,7 @@ public class Main {
                     5-Find series by actor
                     6-Find top 5 shows
                     7-Find by category
+                    8-Find by no. of seasons and rating
                     0-Exit
                     """);
 
@@ -66,6 +67,9 @@ public class Main {
                     break;
                 case 7:
                     findByCategory();
+                    break;
+                case 8:
+                    findBySeasonsAndRating();
                     break;
                 case 0:
                     System.out.println("Goodbye!");
