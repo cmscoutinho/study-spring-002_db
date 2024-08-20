@@ -189,4 +189,17 @@ public class Main {
         System.out.println("Series in category " + category);
         seriesByCategory.forEach(System.out::println);
     }
+
+    private void findBySeasonsAndRating() {
+        System.out.print("Up to how many seasons?: ");
+        var numSeasons = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Minimum rating?: ");
+        var minRating = scanner.nextDouble();
+        scanner.nextLine();
+
+        List<Series> seriesBySeasonsAndRating = repository.findBySeasonsLessThanEqualAndRatingGreaterThanEqual(numSeasons, minRating);
+        seriesBySeasonsAndRating.forEach(System.out::println);
+    }
 }
