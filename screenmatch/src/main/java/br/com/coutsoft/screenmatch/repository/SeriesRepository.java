@@ -3,6 +3,7 @@ package br.com.coutsoft.screenmatch.repository;
 import br.com.coutsoft.screenmatch.model.Category;
 import br.com.coutsoft.screenmatch.model.Series;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,4 +18,7 @@ public interface SeriesRepository extends JpaRepository<Series, Long> {
     List<Series> findByGenre(Category category);
 
     List<Series> findBySeasonsLessThanEqualAndRatingGreaterThanEqual(Integer numSeasons, Double minRating);
+
+    @Query("SELECT s from Series s WHERE s.seasons <= :numSeasons AND s.rating >= :minRating")
+    List<Series> seriesBySeasonsAndRating(Integer numSeasons, double minRating);
 }

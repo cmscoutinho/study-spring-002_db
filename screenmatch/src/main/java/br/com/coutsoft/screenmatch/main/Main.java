@@ -199,7 +199,9 @@ public class Main {
         var minRating = scanner.nextDouble();
         scanner.nextLine();
 
-        List<Series> seriesBySeasonsAndRating = repository.findBySeasonsLessThanEqualAndRatingGreaterThanEqual(numSeasons, minRating);
+        // List<Series> seriesBySeasonsAndRating = repository.findBySeasonsLessThanEqualAndRatingGreaterThanEqual(numSeasons, minRating);
+
+        List<Series> seriesBySeasonsAndRating = repository.seriesBySeasonsAndRating(numSeasons, minRating);
         seriesBySeasonsAndRating.forEach(System.out::println);
     }
 }
