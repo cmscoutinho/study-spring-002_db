@@ -71,6 +71,9 @@ public class Main {
                 case 8:
                     findBySeasonsAndRating();
                     break;
+                case 9:
+                    findEpisodeBySnippet();
+                    break;
                 case 0:
                     System.out.println("Goodbye!");
                     break;
@@ -79,6 +82,9 @@ public class Main {
             }
 
         }
+    }
+
+    private void findEpisodeBySnippet() {
     }
 
     private void listSearchedTitles() {
