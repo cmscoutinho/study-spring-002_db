@@ -40,6 +40,7 @@ public class Main {
                     6-Find top 5 shows
                     7-Find by category
                     8-Find by no. of seasons and rating
+                    9-Find episode by snippet
                     0-Exit
                     """);
 
