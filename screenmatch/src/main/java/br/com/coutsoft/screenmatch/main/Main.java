@@ -84,9 +84,6 @@ public class Main {
         }
     }
 
-    private void findEpisodeBySnippet() {
-    }
-
     private void listSearchedTitles() {
         series = repository.findAll();
         //        series = searchedSeries.stream()
@@ -209,5 +206,13 @@ public class Main {
 
         List<Series> seriesBySeasonsAndRating = repository.seriesBySeasonsAndRating(numSeasons, minRating);
         seriesBySeasonsAndRating.forEach(System.out::println);
+    }
+
+    private void findEpisodeBySnippet() {
+        System.out.print("Episode's name: ");
+        var snippet = scanner.nextLine();
+        List<Episode> episodesFound = repository.episodesBySnippet(snippet);
+        episodesFound.forEach(System.out::println);
+
     }
 }
