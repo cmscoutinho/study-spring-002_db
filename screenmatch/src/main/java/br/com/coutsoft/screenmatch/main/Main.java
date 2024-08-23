@@ -213,7 +213,10 @@ public class Main {
         System.out.print("Episode's name: ");
         var snippet = scanner.nextLine();
         List<Episode> episodesFound = repository.episodesBySnippet(snippet);
-        episodesFound.forEach(System.out::println);
+        //episodesFound.forEach(System.out::println);
+        episodesFound.forEach(e ->
+                System.out.printf("Série: %s Temporada %s - Episódio %s - %s\n",
+                        e.getSeries().getTitle(), e.getSeason(), e.getEpisodeIdx(), e.getTitle()));
 
     }
 }
