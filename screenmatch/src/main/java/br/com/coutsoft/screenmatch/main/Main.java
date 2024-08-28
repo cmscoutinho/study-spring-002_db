@@ -44,6 +44,7 @@ public class Main {
                     7-Find by category
                     8-Find by no. of seasons and rating
                     9-Find episode by snippet
+                    10-Find top episodes by series
                     0-Exit
                     """);
 
