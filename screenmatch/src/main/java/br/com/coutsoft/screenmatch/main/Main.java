@@ -136,7 +136,7 @@ public class Main {
 //        New method using the JPA repository
         Optional<Series> selectedSeries = repository.findByTitleContainsIgnoreCase(seriesName);
 
-        if(selectedSeries.isPresent()) {
+        if (selectedSeries.isPresent()) {
             //SeriesData seriesData = getSeasonData();
             Series foundSeries = selectedSeries.get();
             List<SeasonData> seasons = new ArrayList<>();
@@ -167,7 +167,7 @@ public class Main {
 
         seriesSearch = repository.findByTitleContainsIgnoreCase(title);
 
-        if(seriesSearch.isPresent()) {
+        if (seriesSearch.isPresent()) {
             System.out.println("Series data: " + seriesSearch.get());
         } else {
             System.out.println("Series not found!");
@@ -227,5 +227,10 @@ public class Main {
     }
 
     private void topEpisodesPerSeries() {
+        findSeriesByTitle();
+        if (seriesSearch.isPresent()) {
+            Series series = seriesSearch.get();
+            List<Episode> topEpisodes = repository.topEpisodesPerSeries(series);
+        }
     }
 }
