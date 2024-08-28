@@ -75,6 +75,9 @@ public class Main {
                 case 9:
                     findEpisodeBySnippet();
                     break;
+                case 10:
+                    topEpisodesPerSeries();
+                    break;
                 case 0:
                     System.out.println("Goodbye!");
                     break;
