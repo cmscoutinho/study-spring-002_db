@@ -165,10 +165,10 @@ public class Main {
         System.out.print("Type in the Show's title: ");
         String title = scanner.nextLine();
 
-        Optional<Series> searchedSeries = repository.findByTitleContainsIgnoreCase(title);
+        seriesSearch = repository.findByTitleContainsIgnoreCase(title);
 
-        if(searchedSeries.isPresent()) {
-            System.out.println("Series data: " + searchedSeries.get());
+        if(seriesSearch.isPresent()) {
+            System.out.println("Series data: " + seriesSearch.get());
         } else {
             System.out.println("Series not found!");
         }
