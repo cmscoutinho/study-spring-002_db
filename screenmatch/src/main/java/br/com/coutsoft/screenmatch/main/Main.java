@@ -96,9 +96,6 @@ public class Main {
         }
     }
 
-    private void episodesStartingDate() {
-    }
-
     private void listSearchedTitles() {
         series = repository.findAll();
         //        series = searchedSeries.stream()
@@ -243,5 +240,11 @@ public class Main {
                     System.out.printf("Série: %s Temporada %s - Episódio %s - %s - Nota: %s\n",
                             e.getSeries().getTitle(), e.getSeason(), e.getEpisodeIdx(), e.getTitle(), e.getRating()));
         }
+    }
+
+    private void episodesStartingDate() {
+        System.out.print("Starting date: ");
+        var date = scanner.nextLine();
+        List<Episode> episodesFromDate = repository.episodesFromDate(date);
     }
 }
