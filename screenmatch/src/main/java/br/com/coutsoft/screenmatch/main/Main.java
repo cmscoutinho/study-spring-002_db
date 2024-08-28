@@ -18,6 +18,9 @@ public class Main {
     private SeriesRepository repository;
 
     private List<Series> series = new ArrayList<>();
+
+    private Optional<Series> seriesSearch;
+
     public Main(SeriesRepository repository) {
         this.repository = repository;
     }
