@@ -231,6 +231,9 @@ public class Main {
         if (seriesSearch.isPresent()) {
             Series series = seriesSearch.get();
             List<Episode> topEpisodes = repository.topEpisodesPerSeries(series);
+            topEpisodes.forEach(e ->
+                    System.out.printf("Série: %s Temporada %s - Episódio %s - %s\n",
+                            e.getSeries().getTitle(), e.getSeason(), e.getEpisodeIdx(), e.getTitle()));
         }
     }
 }
