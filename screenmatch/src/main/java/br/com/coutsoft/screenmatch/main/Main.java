@@ -45,6 +45,7 @@ public class Main {
                     8-Find by no. of seasons and rating
                     9-Find episode by snippet
                     10-Find top episodes by series
+                    11-Find episodes from starting date
                     0-Exit
                     """);
 
@@ -81,6 +82,9 @@ public class Main {
                     break;
                 case 10:
                     topEpisodesPerSeries();
+                    break;
+                case 11:
+                    episodesStratingDate();
                     break;
                 case 0:
                     System.out.println("Goodbye!");
