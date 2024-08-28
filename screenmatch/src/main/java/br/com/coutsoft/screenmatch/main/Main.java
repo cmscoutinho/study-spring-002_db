@@ -222,4 +222,7 @@ public class Main {
                         e.getSeries().getTitle(), e.getSeason(), e.getEpisodeIdx(), e.getTitle()));
 
     }
+
+    private void topEpisodesPerSeries() {
+    }
 }
