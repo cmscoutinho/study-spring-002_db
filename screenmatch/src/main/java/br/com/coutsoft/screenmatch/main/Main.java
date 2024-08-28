@@ -84,7 +84,7 @@ public class Main {
                     topEpisodesPerSeries();
                     break;
                 case 11:
-                    episodesStratingDate();
+                    episodesStartingDate();
                     break;
                 case 0:
                     System.out.println("Goodbye!");
@@ -94,6 +94,9 @@ public class Main {
             }
 
         }
+    }
+
+    private void episodesStartingDate() {
     }
 
     private void listSearchedTitles() {
