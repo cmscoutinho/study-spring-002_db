@@ -232,8 +232,8 @@ public class Main {
             Series series = seriesSearch.get();
             List<Episode> topEpisodes = repository.topEpisodesPerSeries(series);
             topEpisodes.forEach(e ->
-                    System.out.printf("Série: %s Temporada %s - Episódio %s - %s\n",
-                            e.getSeries().getTitle(), e.getSeason(), e.getEpisodeIdx(), e.getTitle()));
+                    System.out.printf("Série: %s Temporada %s - Episódio %s - %s - Nota: %s\n",
+                            e.getSeries().getTitle(), e.getSeason(), e.getEpisodeIdx(), e.getTitle(), e.getRating()));
         }
     }
 }
