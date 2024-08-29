@@ -245,10 +245,12 @@ public class Main {
     private void episodesStartingDate() {
         findSeriesByTitle();
         if(seriesSearch.isPresent()) {
-            System.out.print("Starting date: ");
-            var year = scanner.nextLine();
+            System.out.print("Starting year: ");
+            var year = scanner.nextInt();
+            scanner.nextLine();
+
             Series series = seriesSearch.get();
-            List<Episode> episodesFromDate = repository.episodesFromDate(series, year);
+            List<Episode> episodesFromDate = repository.episodesBySeriesAndYear(series, year);
         }
     }
 }
