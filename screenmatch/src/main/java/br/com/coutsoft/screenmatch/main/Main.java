@@ -243,8 +243,11 @@ public class Main {
     }
 
     private void episodesStartingDate() {
-        System.out.print("Starting date: ");
-        var date = scanner.nextLine();
-        List<Episode> episodesFromDate = repository.episodesFromDate(date);
+        findSeriesByTitle();
+        if(seriesSearch.isPresent()) {
+            System.out.print("Starting date: ");
+            var date = scanner.nextLine();
+            List<Episode> episodesFromDate = repository.episodesFromDate(date);
+        }
     }
 }
