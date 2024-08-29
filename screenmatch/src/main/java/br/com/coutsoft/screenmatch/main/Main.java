@@ -246,8 +246,9 @@ public class Main {
         findSeriesByTitle();
         if(seriesSearch.isPresent()) {
             System.out.print("Starting date: ");
-            var date = scanner.nextLine();
-            List<Episode> episodesFromDate = repository.episodesFromDate(date);
+            var year = scanner.nextLine();
+            Series series = seriesSearch.get();
+            List<Episode> episodesFromDate = repository.episodesFromDate(series, year);
         }
     }
 }
