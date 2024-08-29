@@ -251,6 +251,8 @@ public class Main {
 
             Series series = seriesSearch.get();
             List<Episode> episodesFromDate = repository.episodesBySeriesAndYear(series, year);
+
+            episodesFromDate.forEach(System.out::println);
         }
     }
 }
